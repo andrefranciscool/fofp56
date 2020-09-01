@@ -10,4 +10,5 @@ class Connections {
     .config("spark.some.config.option", "some-value")
     .getOrCreate()
   spark.sparkContext.setLogLevel("ERROR")
+  //lindos
 }
