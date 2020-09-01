@@ -8,7 +8,7 @@ class writeData(df: DataFrame, args: Array[String]) {
       .option("sep", ";")
       .option("header", "true")
       .option("encoding", "ISO-8859-1")
-      .csv(args(2)+args(4))
+      .csv(args(2)+args(4) + "generalAnalysis")
   }
 
   def writeAnalysisJson(df: DataFrame): Unit ={

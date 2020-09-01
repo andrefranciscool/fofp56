@@ -12,16 +12,40 @@ object Main extends App{
     println("dude, i need at least one parameter")
 
   }else if (args.length == 5 && (args(0)=="csv" || args(0) == "txt")) {
+    println("""
+      ****************     ****************     ****************
+      ****************     ****************     ****************
+      ****        ****     ********             *****
+      ****        ****     ********             *****
+      ****************     ****************     ****************
+      ****************             ********     ****************
+      ****                         ********     *****     ******
+      ****                 ****************     *****     ******
+      ****                 ****************     ****************
+      ****                 ****************     ****************
+      ___________________________________________________________
+
+               Automated Script for Data Quality Analysis
+
+               Version: 1.0.1
+               Credits: André Leite
+                        Inês Machado
+                        Maria Cardoso
+                        Rui Faria
+      ___________________________________________________________
+    """)
     val df = new readData(conn).readCsv(args)
-    val dataAnalysis= new DataAnalysis(conn, df)
+    val dataAnalysis= new DataAnalysis(conn, df, args)
     val write = new writeData(df, args)
-    dataAnalysis.createAnalysis()
+   // dataAnalysis.createAnalysis()
     write.writeAnalysisCSV(dataAnalysis.createAnalysis())
+
 
   }
   else if (args.length == 4 && args(0) =="json"){
+    println("*****************************************este é json **********************************************************************************")
     val df = new readData(conn).readJson(args)
-    val dataAnalysis= new DataAnalysis(conn, df)
+    val dataAnalysis= new DataAnalysis(conn, df, args)
     val write = new writeData(df, args)
     dataAnalysis.createAnalysis()
     write.writeAnalysisJson(dataAnalysis.createAnalysis())
