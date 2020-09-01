@@ -27,7 +27,7 @@ object Main extends App{
     write.writeAnalysis(dataAnalysis.createAnalysis())
   }
   else {
-    println("Wrong Input")
+    println("Wrong input")
     println("for csv or txt files you need five parameters. Example <file format> <delimiter> <url server> <source path> <destination path>")
     println("for json files you need four parameters. Example <file format> <url server> <source path> <destination path>")
   }
