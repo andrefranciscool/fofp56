@@ -16,7 +16,7 @@ object Main extends App{
     val dataAnalysis= new DataAnalysis(conn, df)
     val write = new writeData(df, args)
     dataAnalysis.createAnalysis()
-    write.writeAnalysis(dataAnalysis.createAnalysis())
+    write.writeAnalysisCSV(dataAnalysis.createAnalysis())
 
   }
   else if (args.length == 4 && args(0) =="json"){
@@ -24,7 +24,7 @@ object Main extends App{
     val dataAnalysis= new DataAnalysis(conn, df)
     val write = new writeData(df, args)
     dataAnalysis.createAnalysis()
-    write.writeAnalysis(dataAnalysis.createAnalysis())
+    write.writeAnalysisJson(dataAnalysis.createAnalysis())
   }
   else {
     println("Wrong input")
