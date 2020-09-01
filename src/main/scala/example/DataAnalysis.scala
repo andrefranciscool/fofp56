@@ -24,7 +24,7 @@ class DataAnalysis(conn: Connections, df: DataFrame) {
 
     return df2
     //teste
-  }
+}
 
   //Blanks Spaces Values
   def getBlanks():DataFrame = {
