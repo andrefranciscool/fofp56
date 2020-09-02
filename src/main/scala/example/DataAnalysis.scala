@@ -152,12 +152,14 @@ class DataAnalysis(conn: Connections, df: DataFrame, args: Array[String]) {
 
       val nameFile = dfs2.schema.fields.map(f => f.name)
       val nameFile2 = nameFile(0)
+      val pathResult = args.length - 1
+      val server = args.length - 2
 
       dfs3.coalesce(1).write.mode("append")
         .option("sep", ";")
         .option("header", "true")
         .option("encoding", "ISO-8859-1")
-        .csv(args(2)+args(4) + "attributes/" + nameFile2 )
+        .csv(args(server)+ args(pathResult) + "attributes/" + nameFile2 )
     }
   }
 

@@ -8,7 +8,9 @@ class Connections {
     .master("local")
     .appName("Spark SQL basic example")
     .config("spark.some.config.option", "some-value")
+    .enableHiveSupport()
     .getOrCreate()
   spark.sparkContext.setLogLevel("ERROR")
-  //vamos testar outra vez
-}
+  }
+
+
