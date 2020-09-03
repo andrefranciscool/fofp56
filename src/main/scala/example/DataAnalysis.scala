@@ -1,11 +1,10 @@
 package example
 
 import org.apache.spark.sql.{DataFrame, Row}
-import org.apache.spark.sql.functions.{array, col, concat, countDistinct, desc, first, length, lit, max, min, round, split, sum, trim, when}
+import org.apache.spark.sql.functions.{ col, concat, countDistinct, desc, first, length, lit, max, min, round, sum, trim, when}
 import org.apache.spark.sql.types.StructType
 
 class DataAnalysis(conn: Connections, df: DataFrame, args: Array[String]) {
-  import conn.spark.implicits._
   val rowsCount = df.count()
 
 
@@ -156,28 +155,18 @@ class DataAnalysis(conn: Connections, df: DataFrame, args: Array[String]) {
       val server = args.length - 2
       val dfs4 = dfs3.withColumn(nameFile2, dfs3.col(nameFile2).cast("String"))
 
-      dfs4.coalesce(1).write.mode("append")
-        .option("sep", ";")
-        .option("header", "true")
-        .option("encoding", "ISO-8859-1")
-        .csv(args(server)+ args(pathResult) + "attributes/" + nameFile2 )
+      try{
+        dfs4.coalesce(1).write.mode("append")
+          .option("sep", ";")
+          .option("header", "true")
+          .option("encoding", "ISO-8859-1")
+          .csv(args(server)+ args(pathResult) + "attributes/" + nameFile2 )
+      }
+      catch {
+        case x : Exception => println("Destination Path already exists. Please choose another one")
+      }
     }
   }
 
-
-
-
-
-  /*def perAttribute():Array[DataFrame] = {
-    val array: Array[DataFrame] = Array()
-    for( a <- 0 to (df.columns.size-1)) {
-      val dfs = df.groupBy(df.columns(a)).count().as("count")
-      val dfs2 = dfs.withColumn("% Frequency", round((dfs.col("Count") / rowsCount) * 100, 2))
-      val dfs3 = dfs2.orderBy(desc("% Frequency"))
-      array :+ dfs3
-    }
-
-
-  }*/
 
 }

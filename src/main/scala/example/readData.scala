@@ -1,10 +1,8 @@
 package example
 
-import example.Main.conn
-import org.apache.spark.sql.{DataFrame, SparkSession}
+import org.apache.spark.sql.{DataFrame}
 
 private class readData(conn: Connections) {
-
 
   def readCsv(args: Array[String]): DataFrame = {
     val dataframe = conn.spark
@@ -39,3 +37,15 @@ private class readData(conn: Connections) {
     return myDataFrame
   }
 }
+
+//Exemplo CSV
+//spark-submit --master yarn fofp56_2.11-0.1.jar "csv" "," "/user/maria_dev/landing_zone/shootings.csv" "hdfs://20.56.49.233:8020/" "/user/maria_dev/spark_warehouse/generatedAnalysis/testeCSV/"
+
+//Exemplo JSON
+// spark-submit --master yarn fofp56_2.11-0.1.jar "json" "/user/maria_dev/landing_zone/generated.json" "hdfs://20.56.49.233:8020/" "/user/maria_dev/spark_warehouse/generatedAnalysis/json/"
+
+//Exemplo SQL
+//spark-submit --master yarn --jars /usr/share/java/mysql-connector-java.jar fofp56_2.11-0.1.jar "mysql" "remotemysql.com:3306" "O6FhOmVsS2" " shootings" "O6FhOmVsS2" "EEW1ugQnav"  "hdfs://20.56.49.233:8020/" "/user/maria_dev/spark_warehouse/generatedAnalysis/testemysql/"
+
+//Exemplo HIVE
+//spark-submit --master yarn fofp56_2.11-0.1.jar "hive" "foodmart" "product" "hdfs://20.56.49.233:8020/" "/user/maria_dev/spark_warehouse/generatedAnalysis/testeHive/"
