@@ -154,8 +154,9 @@ class DataAnalysis(conn: Connections, df: DataFrame, args: Array[String]) {
       val nameFile2 = nameFile(0)
       val pathResult = args.length - 1
       val server = args.length - 2
+      val dfs4 = dfs3.withColumn(nameFile2, dfs3.col(nameFile2).cast("String"))
 
-      dfs3.coalesce(1).write.mode("append")
+      dfs4.coalesce(1).write.mode("append")
         .option("sep", ";")
         .option("header", "true")
         .option("encoding", "ISO-8859-1")
