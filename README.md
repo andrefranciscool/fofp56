@@ -51,8 +51,8 @@ spark-submit --master yarn <jar file generated from sbt> <file format> <db name>
 
 ## Authors
 
-* **André Leite** - [Ana Rita Dias](https://github.com/andrefranciscool)
-* **Inês Machado** - [André Domingues](https://github.com/inesmachado98)
+* **André Leite** - [André Leite](https://github.com/andrefranciscool)
+* **Inês Machado** - [Inês Machado](https://github.com/inesmachado98)
 * **Maria Cardoso** - [Maria Cardoso](https://github.com/MariaCardoso97)
 * **Rui Faria** - [Rui Faria](https://github.com/rmrfaria)
 
