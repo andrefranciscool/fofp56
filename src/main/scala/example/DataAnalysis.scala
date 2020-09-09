@@ -145,7 +145,7 @@ class DataAnalysis(conn: Connections, df: DataFrame, args: Array[String]) {
     for( a <- 0 to (df.columns.size-1)) {
       val dfs = df.groupBy(df.columns(a)).count().as("count")
       val dfs2 = dfs.withColumn("% Frequency", round((dfs.col("Count") / rowsCount) * 100, 2))
-      val dfs3 = dfs2.orderBy(desc("% Frequency"))
+      val dfs3 = dfs2.orderBy(desc("% Frequency")).limit(20)
      // dfs3.show()
 
 
