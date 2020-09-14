@@ -36,7 +36,7 @@ spark-submit --master yarn <jar file generated from sbt> <file format> <source p
 ### MySQL Database
 
 ```
-spark-submit --master yarn <jar file generated from sbt> <file format> <MySQL server name> <db name> <table name> <user> <password> <url server> <destination path>
+spark-submit --master yarn --jars <jar file generated from sbt> <file format> <MySQL server name> <db name> <table name> <user> <password> <url server> <destination path>
 ```
 ### Hive
 
