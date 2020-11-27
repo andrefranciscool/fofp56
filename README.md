@@ -26,22 +26,22 @@ This script was developed under Scala and Spark with the intention of making an 
 ### CSV Files
 
 ```
-spark-submit --master yarn <jar file generated from sbt> <file format> <delimiter> <source path> <url server> <destination path>
+spark-submit --master yarn "<jar file generated from sbt>" "<file format>" "<delimiter>" "<source path>" "<url server>" "<destination path>"
 ```
 ### JSON Files
 
 ```
-spark-submit --master yarn <jar file generated from sbt> <file format> <source path> <url server> <destination path>
+spark-submit --master yarn "<jar file generated from sbt>" "<file format>" "<source path>" "<url server>" "<destination path>"
 ```
 ### MySQL Database
 
 ```
-spark-submit --master yarn --jars /usr/share/java/mysql-connector-java.jar <jar file generated from sbt> <file format> <MySQL server name> <db name> <table name> <user> <password> <url server> <destination path>
+spark-submit --master yarn --jars /usr/share/java/mysql-connector-java.jar "<jar file generated from sbt>" "<file format>" "<MySQL server name>" "<db name>" "<table name> "<user>" "<password>" "<url server>" "<destination path>"
 ```
 ### Hive
 
 ```
-spark-submit --master yarn <jar file generated from sbt> <file format> <db name> <table name> <url server> <destination path>
+spark-submit --master yarn "<jar file generated from sbt>" "<file format>" "<db name>" "<table name>" "<url server>" "<destination path>"
 ```
 
 ## Built With
